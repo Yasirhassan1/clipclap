@@ -59,9 +59,6 @@ popupMsg.style.display = "block"
 async function copyText(){
   try{
     await navigator.clipboard.writeText(input.value);
-    console.log(popupMsg.firstChild)
-    showPopUpAndHideAfter(2000, "Copied to clipboard")
-
   }
   catch(error){
     console.log(error)
