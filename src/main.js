@@ -32,7 +32,7 @@ form.addEventListener("submit", async(e)=>{
   const formData = new FormData(form)
   const data = formData.get("input")
   if(!data || localStorage.getItem("data") === data){
-     loader.style.display = "none"
+  loader.style.display = "none"
   saveBtn.disabled = false;
   saveBtn.style.backgroundColor = "#069ff2"
   alert("Same data provided")
@@ -80,5 +80,4 @@ async function copyText(){
 
 clipboardBtn.addEventListener("click", ()=>{
   copyText();
- 
 })
