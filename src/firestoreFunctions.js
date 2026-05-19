@@ -28,7 +28,7 @@ export async function storeDataInFirestore(document, inputData, documentId) {
      await setDoc(doc(firestore, document, documentId), {
       value: inputData
     });
-      alert("Data saved")
+     
     return true;
   } catch (e) {
     console.error("Error adding document: ", e);

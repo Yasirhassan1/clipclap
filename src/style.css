@@ -12,23 +12,26 @@ body{
   padding: 14px;
   min-height: 100vh;
   background-color: rgb(48, 48, 48);
+  position: relative;
   
 
+}
+.container{
+   min-width: 300px;
+  max-width: 600px;
+  flex-grow: 1;
 }
 #form{
   display: flex;
   flex-direction: column;
   gap: 1rem;
   flex-wrap: wrap;
-  min-width: 300px;
-  max-width: 600px;
-  flex-grow: 1;
-  
+  position: relative;
 }
 
 #inputt{
  border: 1px solid gray;
-  padding: 1.2rem;
+ padding: 1rem 1.8rem 1rem 1rem;
   border-radius: 8px;
   color: rgb(225, 225, 225);
   font-size: 14px;
@@ -63,8 +66,21 @@ body{
 
 
 .loader {
+  display: none;
+  align-items: center;
+
+
+  
+}
+
+.loader2 {
   display: flex;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
 
   
 }
@@ -98,3 +114,22 @@ body{
     transform: scaleY(1);
   }
 }
+
+.clipboard{
+ position: absolute;
+ right: 3px;
+ cursor: pointer;
+ top: 3px;
+}
+
+#pop-up-msg{
+  position: absolute;
+  background-color: aliceblue;
+  opacity: 0.7;
+  padding: 10px;
+  display: none;
+  border-radius: 5px;
+  top: 10px;
+}
+
+
