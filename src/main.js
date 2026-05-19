@@ -43,13 +43,22 @@ form.addEventListener("submit", async(e)=>{
   loader.style.display = "none"
   saveBtn.disabled = false;
   saveBtn.style.backgroundColor = "#069ff2"
- showPopUpAndHideAfter(2000, "Data saved successfully!")
+ showPopUpAndHideAfter(2000, "Data saved successfully!", "success")
+  }
+  else{
+     showPopUpAndHideAfter(2000, "Something went wrong!", "error")
+       loader.style.display = "none"
   }
 })
 
-function showPopUpAndHideAfter(timeInMiliSec, message){
+function showPopUpAndHideAfter(timeInMiliSec, message, type){
+  const messageType = {
+    "error": "#ff0000",
+    "success": "#e2e2e2"
+  }
 popupMsg.firstElementChild.innerText = message
 popupMsg.style.display = "block"
+popupMsg.style.backgroundColor = messageType[type]
  setTimeout(()=>{
     popupMsg.style.display = "none"
 
@@ -60,7 +69,7 @@ async function copyText(){
   try{
     await navigator.clipboard.writeText(input.value);
     if(window.innerWidth>640){
-      showPopUpAndHideAfter(2000, "Copied to clipboard")
+      showPopUpAndHideAfter(2000, "Copied to clipboard", "success")
     }
   }
   catch(error){
