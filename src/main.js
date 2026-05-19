@@ -74,6 +74,7 @@ async function copyText(){
   }
   catch(error){
     console.log(error)
+    showPopUpAndHideAfter(2000, "Failed to copy", "error")
   }
 }
 
