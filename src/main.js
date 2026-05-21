@@ -13,6 +13,12 @@ const clipboardBtn = document.getElementsByClassName("clip-board-btn")[0]
 const popupMsg = document.getElementById("pop-up-msg")
 
 async function get(){
+  if(localStorage.getItem("data")){
+    input.value = localStorage.getItem("data")
+    loader2.style.display = "none"
+    return
+  }
+    
   const data = await getDataFromFireStore(documentId)
   input.value = data
   localStorage.setItem("data", data)
@@ -38,10 +44,11 @@ form.addEventListener("submit", async(e)=>{
   alert("Same data provided")
      return
   }
-
+  
   if(await storeDataInFirestore("clip", data, documentId)){
   loader.style.display = "none"
   saveBtn.disabled = false;
+  localStorage.setItem("data", data)
   saveBtn.style.backgroundColor = "#069ff2"
  showPopUpAndHideAfter(2000, "Data saved successfully!", "success")
   }
